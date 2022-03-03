@@ -2,33 +2,50 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-class Game extends React.Component {
+class Game extends React.Component{
   constructor(props) {
     super(props);
     this.state = "ready";
   }
 
-  getState(){
-    return this.state
+  handleClick() {
+    this.setState({state: "running"});
+  }
+
+  renderTimer(){
+    if (this.state == "ready") {
+      return "1 : 00"
+    }else{
+      return <Timer />
+    }
+    
+  }
+
+  render() {
+    return (
+      <div>
+        <div id='header'>
+          <div>{this.renderTimer()}</div>
+          <button onClick={() => this.handleClick()} > START</button>
+        </div>
+        <div id="mainPage"><Board /></div>
+      </div>
+    );
   }
 }
+
 
 class Timer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cicle: 59, seconds: 0, minutes: 1};
+    this.state = { cicle: 59, seconds: 99, minutes: 99};
   }
 
   tick() {
-    if (Game.getState() == "ready" || Game.getState() == "finished") {
-      if (this.state.minutes > 0) {
-        this.setState(state => ({
-          seconds: 59,
-          minutes: state.minutes - 1
-        }));
-      }
-    }
-    
+    this.setState(state => ({
+      seconds: this.state.seconds - 1,
+      minutes: this.state.minutes - 1
+    }));
   }
 
   componentDidMount() {
@@ -46,21 +63,6 @@ class Timer extends React.Component {
       </div>
     );
   }
-}
-
-class Header extends React.Component {
-  
-  getheader(){
-    return <div id='header'><Timer /></div>
-  }
-
-  render() {
-    return (
-      this.getheader()
-    )
-
-  }
-
 }
 
 class Board extends React.Component {
@@ -92,13 +94,6 @@ class Board extends React.Component {
 }
 
 ReactDOM.render(
-  <div>
-    <div>
-      <Header />
-    </div>
-    <div id="mainPage">
-    <Board />  
-    </div>
-  </div>,
+  <div><Game /></div>,
   document.getElementById('root')
 );
