@@ -85,6 +85,7 @@ class Board extends React.Component {
   }
 
   render() {
+    this.board = []
     return (
       this.getBoard()
     )
