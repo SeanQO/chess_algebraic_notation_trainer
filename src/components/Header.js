@@ -1,13 +1,14 @@
 const Header = (props) => {
     return(
         <div className="header">
-            <ul>
-                <div>
-                    {props.minutes} : {props.seconds}
-                </div>
-                <button onClick={props.changeGameState} value={props.nextGameState}>
+            <div id="divSpace">
+                {props.minutes} : {props.seconds}
+            </div>
+            <div id="divSpace">
+                <button className="button" onClick={props.changeGameState}>
+                    {props.nextGameState}
                 </button>
-            </ul>
+            </div>
         </div>
     )
 }

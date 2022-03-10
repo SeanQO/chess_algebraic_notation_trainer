@@ -1,6 +1,6 @@
 .game{
-  display: grid;
   place-content: center;
+  font-size: xx-large;
 }
 .header{
   justify-content: center;
@@ -8,11 +8,17 @@
   place-content: center;
   height: 120px;
 }
-#board{
+.button{
+  font-size: x-large;
+}
+.board{
   display: flex;
   flex-wrap: wrap;
   width: 600px;
   height: 600px;
+}
+#divSpace{
+  padding: 0px 0px 16px 0px;
 }
 #tile:nth-child(even){
   width: 75px;
