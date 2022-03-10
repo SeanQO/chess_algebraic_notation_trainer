@@ -1,12 +1,12 @@
-#header{
+.game{
+  display: grid;
+  place-content: center;
+}
+.header{
   justify-content: center;
   display: grid;
   place-content: center;
   height: 120px;
-}
-#mainPage{
-  display: grid;
-  place-content: center;
 }
 #board{
   display: flex;
