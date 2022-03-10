@@ -1,4 +1,5 @@
 .game{
+  display: grid;
   place-content: center;
   font-size: xx-large;
 }

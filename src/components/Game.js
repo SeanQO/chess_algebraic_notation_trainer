@@ -1,4 +1,5 @@
 import Header from './Header'
+import Board from './Board'
 
 const Game = () => {
 
@@ -9,7 +10,7 @@ const Game = () => {
     return (
         <div className="game">
             <Header minutes="01" seconds="00" nextGameState="START" changeGameState={handleStateChange}></Header>
-            
+            <Board/>
         </div>
     )
 }
